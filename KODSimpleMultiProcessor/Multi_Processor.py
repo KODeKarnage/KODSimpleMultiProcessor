@@ -63,8 +63,11 @@ class SimpleMultiProcessor(object):
                     If False, then the function is applied to the contents of the
                     against list one at a time.
 
-    Example
+    Usage
     =======
+
+    from KODSimpleMultiProcessor import SMP
+
 
     def distributed_function(part_of_list_to_process, *args, **kwargs):
         # You need to alias all the modules you'd normally alias here, rather
@@ -84,7 +87,7 @@ class SimpleMultiProcessor(object):
 
     var_func_dictionary = {'test_func': test_func, 'test_var': test_var}
 
-    with MultiProcessor(cluster_count=6, modules=['sys', 'numpy']) as mp:
+    with SMP(cluster_count=6, modules=['sys', 'numpy']) as mp:
 
         mp.pass_vars_and_funcs(var_func_dictionary)
 
